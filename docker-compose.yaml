@@ -1,10 +1,8 @@
-version: '3.9'
+version: "3.9"
 
 services:
   db:
     image: postgres:16
-    container_name: nextjs_postgres
-    restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -12,12 +10,12 @@ services:
     ports:
       - "5432:5432"
     networks:
-        - nextjs_net
+      - devnet
     volumes:
       - pgdata:/var/lib/postgresql/data
 
+networks:
+  devnet:
+
 volumes:
   pgdata:
-
-networks:
-    nextjs_net:
